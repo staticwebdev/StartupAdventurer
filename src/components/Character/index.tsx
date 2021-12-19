@@ -20,7 +20,7 @@ const Character = () => {
 		<CharacterContainer>
 			<CharacterBase skinColors={skinColor && skinColor.palette} hasProsthetic={hasProsthetic}>
 				<Tops />
-				<Bottoms />
+				<Bottoms selected={bottom} />
 				<Shoes />
 				<Accessories />
 				<Hair />
