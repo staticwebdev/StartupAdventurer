@@ -40,7 +40,11 @@ const BottomPanel = () => {
 	const dispatch: Dispatch = useDispatch();
 	const { bottom, shoes: selectedShoes } = useSelector((store: IStoreState) => store.character);
 
-	const getActiveBottomColor = (type: string) => bottom && bottom.style === type && bottom.color;
+	const getActiveBottomColor = (type: string) => {
+		if (bottom && bottom.style === type) {
+			return bottom.color
+		}
+	}
 
 	return (
 		<OptionPanel id="bottom-panel" aria-labelledby="bottom" className="bottom-options">

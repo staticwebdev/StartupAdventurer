@@ -6,7 +6,6 @@ import {
   SET_SKIN_COLOR,
   SET_EYEWEAR,
   SET_BOTTOM,
-  SET_TOP,
   SET_SHOES,
   RESET_CHARACTER,
   SET_ACCESSORY,
@@ -14,13 +13,10 @@ import {
   SET_END_TIME,
   SET_VIEWED_TAB,
 } from "./character.types";
-import { Colors } from "@/interfaces/Colors";
+import { IColorSet } from "@/interfaces/Colors";
 import { IAction } from "@/interfaces/IAction";
-
-interface IColorSet {
-  name: string;
-  palette?: Colors;
-}
+import { TopStyle } from "@/interfaces/ICharacter"
+import { CharacterAction, CharacterActionType } from "@/redux/character/character.types"
 
 export const setHairStyle = (style: string | undefined): IAction => ({
   type: SET_HAIRSTYLE,
@@ -52,9 +48,10 @@ export const setEyewear = (style: string | null): IAction => ({
   payload: { style },
 });
 
-export const setTop = (style: string, color?: IColorSet): IAction => ({
-  type: SET_TOP,
+export const setTop = (style: TopStyle, color?: IColorSet): CharacterAction => ({
+  type: CharacterActionType.SET_TOP,
   payload: { style, color },
+  typed: true
 });
 
 export const setBottom = (style: string, color?: IColorSet): IAction => ({

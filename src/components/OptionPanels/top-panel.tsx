@@ -11,9 +11,9 @@ import { getColorSet, decideNextSet } from "@/utils/selection-utils";
 const TopPanel = () => {
 	const { tshirt, shirt, jacket, hoodie } = tops;
 	const dispatch: Dispatch = useDispatch();
-	const { tshirt: activeTShirt, shirt: activeShirt, jacket: activeJacket, hoodie: activeHoodie } = useSelector(
-		(store: IStoreState) => store.character
-	);
+	const { tshirt: activeTShirt = undefined, shirt: activeShirt, jacket: activeJacket, hoodie: activeHoodie } = useSelector(
+		(store: IStoreState) => store.character.tops
+	) ?? {};
 
 	return (
 		<OptionPanel id="top-panel" aria-labelledby="top">

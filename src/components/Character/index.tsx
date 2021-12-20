@@ -1,6 +1,7 @@
 import React from "react";
 import { CharacterContainer } from "./styles";
 import CharacterBase from "./base";
+import { pick } from "lodash-es"
 
 import Hair from "./layers/hair";
 import Shoes from "./layers/shoes";
@@ -13,13 +14,13 @@ import { useSelector } from "react-redux";
 import { IStoreState } from "@/interfaces/IStoreState";
 
 const Character = () => {
-	const { skinColor, bottom } = useSelector((store: IStoreState) => store.character);
+	const { skinColor, bottom, tops } = useSelector((store: IStoreState) => store.character);
 	const hasProsthetic = !!bottom && bottom.style && bottom.style === "prosthetic";
 
 	return (
 		<CharacterContainer>
 			<CharacterBase skinColors={skinColor && skinColor.palette} hasProsthetic={hasProsthetic}>
-				<Tops />
+				<Tops selected={tops} />
 				<Bottoms selected={bottom} />
 				<Shoes />
 				<Accessories />

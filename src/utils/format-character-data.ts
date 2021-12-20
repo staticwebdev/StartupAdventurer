@@ -2,7 +2,7 @@ import { Colors } from "@/interfaces/Colors";
 import { IStoreState } from "@/interfaces/IStoreState";
 import { IColorSet } from "./selection-utils";
 
-const getColorString = (colorObj: { name: string; palette: Colors }) => {
+const getColorString = (colorObj: IColorSet) => {
   const { name, palette } = colorObj;
 
   if (!palette) return name;
@@ -19,7 +19,7 @@ export const decodeColourSet = (data: string): IColorSet => {
   };
 };
 
-const getColoredAttribute = (name: string | undefined, color: { name: string; palette: Colors }) => {
+const getColoredAttribute = (name: string | undefined, color: IColorSet | undefined) => {
   if (!color || !color.palette || !color.name) {
     return {
       id: name ? name : "none",

@@ -1,14 +1,9 @@
 import React from "react";
 import bottoms from "@/components/CharacterOptions/bottoms";
-import { useSelector } from "react-redux";
 import get from "lodash-es/get";
-import { IStoreState } from "@/interfaces/IStoreState";
-
+import { ICharacter } from "@/interfaces/ICharacter";
 interface IProps {
-	selected?: {
-		style: string,
-		color: string
-	}
+	selected?: ICharacter["bottom"]
 }
 
 const BottomLayer = ({ selected: selectedBottom }: IProps) => {
