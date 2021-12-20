@@ -53,8 +53,10 @@ const OptionColorSelectable = (props: IProps) => {
 			return;
 		}
 		let selectedIndex = activeColor ? Object.keys(colors).indexOf(activeColor.name) : 0;
-		buttons[selectedIndex].focus();
-		setFocusedIndex(selectedIndex);
+		if (selectedIndex > -1) {
+			buttons[selectedIndex].focus();
+			setFocusedIndex(selectedIndex);
+		}
 	};
 
 	const keyPress = (event: React.KeyboardEvent<HTMLElement>, index: number) => {
