@@ -6,7 +6,6 @@ import {
   SET_FACIAL_HAIR_COLOR,
   SET_EYEWEAR,
   SET_BOTTOM,
-  SET_SHOES,
   RESET_CHARACTER,
   SET_ACCESSORY,
   SET_START_TIME,
@@ -56,7 +55,17 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             }
           };
         }
+      case (CharacterActionType.SET_SHOES):
+        if (state.shoes && state.shoes === action.payload.style) {
+          const { shoes, ...newState } = state;
 
+          return newState;
+        } else {
+          return {
+            ...state,
+            shoes: action.payload.style,
+          };
+        }
     }
   } else {
     const { type, payload } = action;
@@ -114,18 +123,6 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             bottom: {
               ...payload,
             },
-          };
-        }
-
-      case SET_SHOES:
-        if (state.shoes && state.shoes === payload.style) {
-          const { shoes, ...newState } = state;
-
-          return newState;
-        } else {
-          return {
-            ...state,
-            shoes: payload.style,
           };
         }
 

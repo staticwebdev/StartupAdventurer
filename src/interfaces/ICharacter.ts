@@ -9,6 +9,7 @@ export interface ICharacter {
 		shirt?: IColorSet,
 		jacket?: IColorSet
 	}
+	shoes?: string // This should probably be a type
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"

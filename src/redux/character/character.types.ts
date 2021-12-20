@@ -38,5 +38,6 @@ export enum CharacterActionType {
 
 type SetBottomAction = Action<typeof CharacterActionType.SET_BOTTOM, ICharacter['bottom']>;
 type SetTopAction = Action<typeof CharacterActionType.SET_TOP, IStyledSelection<TopStyle>>;
+type SetShoesAction = Action<typeof CharacterActionType.SET_SHOES, IStyledSelection<string>>;
 
-export type CharacterAction = SetBottomAction | SetTopAction;
+export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction;

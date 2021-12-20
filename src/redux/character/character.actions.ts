@@ -59,9 +59,10 @@ export const setBottom = (style: string, color?: IColorSet): IAction => ({
   payload: { style, color },
 });
 
-export const setShoes = (style: string): IAction => ({
-  type: SET_SHOES,
+export const setShoes = (style: string): CharacterAction => ({
+  type: CharacterActionType.SET_SHOES,
   payload: { style },
+  typed: true
 });
 
 export const setAccessory = (style: string | undefined): IAction => ({
