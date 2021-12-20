@@ -7,7 +7,6 @@ import {
   SET_EYEWEAR,
   SET_BOTTOM,
   RESET_CHARACTER,
-  SET_ACCESSORY,
   SET_START_TIME,
   SET_END_TIME,
   SET_VIEWED_TAB,
@@ -64,9 +63,10 @@ export const setShoes = (style: string): CharacterAction => ({
   typed: true
 });
 
-export const setAccessory = (style: string | undefined): IAction => ({
-  type: SET_ACCESSORY,
+export const setAccessory = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_ACCESSORY,
   payload: { style },
+  typed: true
 });
 
 export const setStartTime = (time: string): IAction => ({

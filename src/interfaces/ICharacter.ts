@@ -10,6 +10,7 @@ export interface ICharacter {
 		jacket?: IColorSet;
 	};
 	shoes?: string; // This should probably be a type
+	accessories?: string[];
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"

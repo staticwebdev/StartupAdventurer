@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 import { IStoreState } from "@/interfaces/IStoreState";
 
 const Character = () => {
-	const { skinColor, bottom, tops, shoes } = useSelector((store: IStoreState) => store.character);
+	const { skinColor, bottom, tops, shoes, accessories } = useSelector((store: IStoreState) => store.character);
 	const hasProsthetic = !!bottom && bottom.style && bottom.style === "prosthetic";
 
 	return (
@@ -21,7 +21,7 @@ const Character = () => {
 				<Tops selected={tops} />
 				<Bottoms selected={bottom} />
 				<Shoes selectedShoes={shoes} />
-				<Accessories />
+				<Accessories selectedAccessories={accessories} />
 				<Hair />
 				<Eyewear />
 				<FacialHair />

@@ -7,7 +7,6 @@ import {
   SET_EYEWEAR,
   SET_BOTTOM,
   RESET_CHARACTER,
-  SET_ACCESSORY,
   SET_START_TIME,
   SET_END_TIME,
   SET_VIEWED_TAB,
@@ -66,6 +65,23 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             shoes: action.payload.style,
           };
         }
+      case CharacterActionType.SET_ACCESSORY: {
+        if (!action.payload.style) return { ...state, accessories: [] };
+        const accs = state.accessories ? state.accessories : [];
+        const index = accs.indexOf(action.payload.style);
+
+        let newAccessories = [...accs];
+        if (index === -1) {
+          newAccessories = [...newAccessories, action.payload.style];
+        } else {
+          newAccessories.splice(index, 1);
+        }
+
+        return {
+          ...state,
+          accessories: newAccessories,
+        };
+      }
     }
   } else {
     const { type, payload } = action;
@@ -125,24 +141,6 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             },
           };
         }
-
-      case SET_ACCESSORY: {
-        if (!payload.style) return { ...state, accessories: [] };
-        const accs = state.accessories ? state.accessories : [];
-        const index = accs.indexOf(payload.style);
-
-        let newAccessories = [...accs];
-        if (index === -1) {
-          newAccessories = [...newAccessories, payload.style];
-        } else {
-          newAccessories.splice(index, 1);
-        }
-
-        return {
-          ...state,
-          accessories: newAccessories,
-        };
-      }
 
       case SET_START_TIME:
         return {
