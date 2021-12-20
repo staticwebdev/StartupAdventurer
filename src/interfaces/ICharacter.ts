@@ -2,14 +2,14 @@ import { IColorSet } from "./Colors"
 
 export interface ICharacter {
 	[key: string]: any;
-	bottom?: IStyledSelection<BottomStyle>
+	bottom?: IStyledSelection<BottomStyle>;
 	tops?: {
-		hoodie?: IColorSet,
-		tshirt?: IColorSet,
-		shirt?: IColorSet,
-		jacket?: IColorSet
-	}
-	shoes?: string // This should probably be a type
+		hoodie?: IColorSet;
+		tshirt?: IColorSet;
+		shirt?: IColorSet;
+		jacket?: IColorSet;
+	};
+	shoes?: string; // This should probably be a type
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"
