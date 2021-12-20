@@ -1,4 +1,3 @@
-import { Colors } from "@/interfaces/Colors";
 import { IStoreState } from "@/interfaces/IStoreState";
 import { IColorSet } from "./selection-utils";
 

@@ -1,7 +1,5 @@
-import React from "react";
 import { CharacterContainer } from "./styles";
 import CharacterBase from "./base";
-import { pick } from "lodash-es"
 
 import Hair from "./layers/hair";
 import Shoes from "./layers/shoes";
