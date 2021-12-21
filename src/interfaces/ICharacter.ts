@@ -17,7 +17,10 @@ export interface ICharacter {
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"
-export type BottomStyle = "pants" | "maxi-skirt" | "mini-skirt" | "prosthetic"
+export type ColoredBottomStyle = "pants" | "maxiSkirt" | "miniSkirt"
+export type OtherBottomStyle = "kilt" | "prosthetic" | "bathrobe" | "dress"
+export type BottomStyle = ColoredBottomStyle | OtherBottomStyle
+
 
 export interface IStyledSelection<Styles> {
 	style: Styles,
