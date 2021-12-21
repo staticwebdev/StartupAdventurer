@@ -1,3 +1,4 @@
+import React from "react";
 import { CharacterContainer } from "./styles";
 import CharacterBase from "./base";
 

@@ -1,3 +1,4 @@
+import React from "react";
 import shoes from "@/components/CharacterOptions/shoes";
 
 const shoeLayers = shoes.map((shoe, i: number) => ({

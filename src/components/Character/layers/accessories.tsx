@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import accessories from "@/components/CharacterOptions/accessories";
 
 import get from "lodash-es/get";

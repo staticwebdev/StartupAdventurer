@@ -1,3 +1,4 @@
+import React from "react";
 import tops from "@/components/CharacterOptions/tops";
 
 import isEmpty from "lodash-es/isEmpty";
