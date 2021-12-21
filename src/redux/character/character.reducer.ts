@@ -122,6 +122,19 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             color: action.payload.color,
           },
         };
+      case CharacterActionType.SET_BOTTOM:
+        /* remove option if adding already equipped style or no color is selected */
+        if ((action.payload?.color && state.bottom && isEqual(state.bottom.color, action.payload.color)) || !action.payload?.color) {
+          const { bottom, ...newState } = state;
+          return newState;
+        } else {
+          return {
+            ...state,
+            bottom: {
+              ...action.payload,
+            },
+          };
+        }
     }
   } else {
     const { type, payload } = action;
@@ -134,6 +147,8 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             ...payload.color,
           },
         };
+
+
 
       case SET_START_TIME:
         return {
