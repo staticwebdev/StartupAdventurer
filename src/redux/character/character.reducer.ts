@@ -1,7 +1,5 @@
 import {
   SET_SKIN_COLOR,
-  SET_FACIAL_HAIR,
-  SET_FACIAL_HAIR_COLOR,
   SET_BOTTOM,
   RESET_CHARACTER,
   SET_START_TIME,
@@ -23,7 +21,11 @@ const initialState: ICharacter = {
     color: defaultColorObject,
   },
   skinColor: defaultSkin,
-  facialHairColor: defaultFacialHairColor,
+  facialHair:
+  {
+    color: defaultFacialHairColor,
+    style: undefined
+  },
   viewedOptionTabs: [],
 };
 
@@ -103,6 +105,23 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
           ...state,
           eyewear: action.payload.style,
         };
+      case CharacterActionType.SET_FACIAL_HAIR:
+        return {
+          ...state,
+          facialHair: {
+            ...state.facialHair,
+            style: action.payload.style,
+          }
+        };
+
+      case CharacterActionType.SET_FACIAL_HAIR_COLOR:
+        return {
+          ...state,
+          facialHair: {
+            ...state.facialHair,
+            color: action.payload.color,
+          },
+        };
     }
   } else {
     const { type, payload } = action;
@@ -116,19 +135,6 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
           },
         };
 
-      case SET_FACIAL_HAIR:
-        return {
-          ...state,
-          facialHair: payload.style,
-        };
-
-      case SET_FACIAL_HAIR_COLOR:
-        return {
-          ...state,
-          facialHairColor: {
-            ...payload.color,
-          },
-        };
 
       case SET_BOTTOM:
         /* remove option if adding already equipped style or no color is selected */

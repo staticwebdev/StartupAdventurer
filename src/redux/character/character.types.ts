@@ -43,5 +43,7 @@ type SetAccessoryAction = Action<typeof CharacterActionType.SET_ACCESSORY, IStyl
 type SetHairStyleAction = Action<typeof CharacterActionType.SET_HAIRSTYLE, Partial<IStyledSelection<string>>>;
 type SetHairColorAction = Action<typeof CharacterActionType.SET_HAIR_COLOR, IColoredSelection>;
 type SetEyewearAction = Action<typeof CharacterActionType.SET_EYEWEAR, IStyledSelection<string | undefined>>;
+type SetFacialHairStyleAction = Action<typeof CharacterActionType.SET_FACIAL_HAIR, Partial<IStyledSelection<string>>>;
+type SetFacialHairColorAction = Action<typeof CharacterActionType.SET_FACIAL_HAIR_COLOR, IColoredSelection>;
 
-export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction | SetEyewearAction;
+export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction | SetEyewearAction | SetFacialHairStyleAction | SetFacialHairColorAction;

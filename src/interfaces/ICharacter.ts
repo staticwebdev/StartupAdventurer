@@ -12,7 +12,8 @@ export interface ICharacter {
 	shoes?: string; // This should probably be a type
 	accessories?: string[];
 	eyewear?: string;
-	hair?: Partial<IStyledSelection<string>>
+	hair?: Partial<IStyledSelection<string>>;
+	facialHair: Partial<IStyledSelection<string>>;
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"

@@ -1,6 +1,4 @@
 import {
-  SET_FACIAL_HAIR,
-  SET_FACIAL_HAIR_COLOR,
   SET_SKIN_COLOR,
   SET_BOTTOM,
   RESET_CHARACTER,
@@ -25,14 +23,16 @@ export const setHairColor = (color: IColorSet | undefined): CharacterAction => (
   typed: true
 });
 
-export const setFacialHair = (style: string | undefined): IAction => ({
-  type: SET_FACIAL_HAIR,
+export const setFacialHair = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_FACIAL_HAIR,
   payload: { style },
+  typed: true
 });
 
-export const setFacialHairColor = (color: IColorSet | undefined): IAction => ({
-  type: SET_FACIAL_HAIR_COLOR,
+export const setFacialHairColor = (color: IColorSet | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_FACIAL_HAIR_COLOR,
   payload: { color },
+  typed: true
 });
 
 export const setSkinColor = (color: IColorSet): IAction => ({

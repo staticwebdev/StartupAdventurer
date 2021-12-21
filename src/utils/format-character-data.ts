@@ -43,8 +43,8 @@ const formatCharacterData = (state: NecessaryState) => {
 
   const characterData = {
     appearance: {
-      hair: getColoredAttribute(character.hairstyle, character.hairColor),
-      facialHair: getColoredAttribute(character.facialHair, character.facialHairColor),
+      hair: getColoredAttribute(character.hair?.style, character.hair?.color),
+      facialHair: getColoredAttribute(character.facialHair?.style, character.facialHair?.color),
       skin: character.skinColor ? character.skinColor.name + "|" + character.skinColor.palette.join(",") : "",
       eyewear: character.eyewear || null,
       "t-shirt": character.tshirt ? getColorString(character.tshirt) : null,

@@ -30,8 +30,7 @@ const BodyPanel = () => {
 
 	const {
 		hair: selectedHair,
-		facialHair: selectedFacialHair = "",
-		facialHairColor,
+		facialHair: selectedFacialHair,
 		skinColor,
 		eyewear: selectedEyewear,
 	} = useSelector((store: IStoreState) => store.character);
@@ -87,13 +86,13 @@ const BodyPanel = () => {
 			/>
 
 			<OptionStyleSelectable
-				thumbColors={facialHairColor && facialHairColor.palette}
+				thumbColors={selectedFacialHair?.color && selectedFacialHair.color.palette}
 				horizontal={true}
 				title="Facial hair"
 				styles={facialHairOptions}
 				onResetClicked={() => dispatch(setFacialHair(undefined))}
 				onStyleClicked={style => dispatch(setFacialHair(style))}
-				selectedStyle={selectedFacialHair}
+				selectedStyle={selectedFacialHair?.style}
 				className="facial-hair"
 			/>
 			<OptionColorSelectable
@@ -104,7 +103,7 @@ const BodyPanel = () => {
 				onResetClicked={() => dispatch(setFacialHairColor(undefined))}
 				withHeader={false}
 				withSwatchContainer={false}
-				activeColor={facialHairColor}
+				activeColor={selectedFacialHair?.color}
 				className="facial-hair-color"
 			/>
 			<OptionStyleSelectable
