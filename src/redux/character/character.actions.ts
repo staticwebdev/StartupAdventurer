@@ -8,7 +8,7 @@ import {
 } from "./character.types";
 import { IColorSet } from "@/interfaces/Colors";
 import { IAction } from "@/interfaces/IAction";
-import { TopStyle } from "@/interfaces/ICharacter"
+import { BottomStyle, TopStyle } from "@/interfaces/ICharacter"
 import { CharacterAction, CharacterActionType } from "@/redux/character/character.types"
 
 export const setHairStyle = (style: string | undefined): CharacterAction => ({
@@ -52,9 +52,10 @@ export const setTop = (style: TopStyle, color?: IColorSet): CharacterAction => (
   typed: true
 });
 
-export const setBottom = (style: string, color?: IColorSet): IAction => ({
-  type: SET_BOTTOM,
+export const setBottom = (style: BottomStyle, color?: IColorSet): CharacterAction => ({
+  type: CharacterActionType.SET_BOTTOM,
   payload: { style, color },
+  typed: true
 });
 
 export const setShoes = (style: string): CharacterAction => ({

@@ -35,7 +35,7 @@ const OptionStyleSelectable = <T extends string>(props: IProps<T>) => {
 		className,
 		thumbColors,
 	} = props;
-	const isActive = (value: string) =>
+	const isActive = (value: T) =>
 		!!selectedStyle &&
 		(!Array.isArray(selectedStyle) ? selectedStyle === value : selectedStyle.indexOf(value) !== -1);
 	const isActiveFromStyles =
