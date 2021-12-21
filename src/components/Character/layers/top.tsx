@@ -5,7 +5,7 @@ import isEmpty from "lodash-es/isEmpty";
 import get from "lodash-es/get";
 import { ICharacter } from "@/interfaces/ICharacter";
 
-interface IProps { selected?: ICharacter["top"] }
+interface IProps { selected?: ICharacter["tops"] }
 
 const CharacterTop = ({ selected }: IProps) => {
 	const { hoodie, jacket, shirt, tshirt } = tops;
