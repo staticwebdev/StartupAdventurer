@@ -2,7 +2,6 @@ import {
   SET_SKIN_COLOR,
   SET_FACIAL_HAIR,
   SET_FACIAL_HAIR_COLOR,
-  SET_EYEWEAR,
   SET_BOTTOM,
   RESET_CHARACTER,
   SET_START_TIME,
@@ -99,6 +98,11 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             color: action.payload.color,
           }
         };
+      case CharacterActionType.SET_EYEWEAR:
+        return {
+          ...state,
+          eyewear: action.payload.style,
+        };
     }
   } else {
     const { type, payload } = action;
@@ -124,12 +128,6 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
           facialHairColor: {
             ...payload.color,
           },
-        };
-
-      case SET_EYEWEAR:
-        return {
-          ...state,
-          eyewear: payload.style,
         };
 
       case SET_BOTTOM:

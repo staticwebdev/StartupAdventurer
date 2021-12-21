@@ -111,7 +111,7 @@ const BodyPanel = () => {
 				horizontal={true}
 				title="Glasses"
 				styles={eyewearOptions}
-				onResetClicked={() => dispatch(setEyewear(null))}
+				onResetClicked={() => dispatch(setEyewear(undefined))}
 				onStyleClicked={style => dispatch(setEyewear(style))}
 				selectedStyle={selectedEyewear}
 				className="eyewear"

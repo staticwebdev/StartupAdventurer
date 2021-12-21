@@ -11,6 +11,7 @@ export interface ICharacter {
 	};
 	shoes?: string; // This should probably be a type
 	accessories?: string[];
+	eyewear?: string;
 	hair?: Partial<IStyledSelection<string>>
 }
 
