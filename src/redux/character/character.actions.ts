@@ -1,6 +1,4 @@
 import {
-  SET_HAIRSTYLE,
-  SET_HAIR_COLOR,
   SET_FACIAL_HAIR,
   SET_FACIAL_HAIR_COLOR,
   SET_SKIN_COLOR,
@@ -16,14 +14,16 @@ import { IAction } from "@/interfaces/IAction";
 import { TopStyle } from "@/interfaces/ICharacter"
 import { CharacterAction, CharacterActionType } from "@/redux/character/character.types"
 
-export const setHairStyle = (style: string | undefined): IAction => ({
-  type: SET_HAIRSTYLE,
+export const setHairStyle = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_HAIRSTYLE,
   payload: { style },
+  typed: true
 });
 
-export const setHairColor = (color: IColorSet | undefined): IAction => ({
-  type: SET_HAIR_COLOR,
+export const setHairColor = (color: IColorSet | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_HAIR_COLOR,
   payload: { color },
+  typed: true
 });
 
 export const setFacialHair = (style: string | undefined): IAction => ({

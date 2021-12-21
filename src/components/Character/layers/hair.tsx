@@ -1,14 +1,15 @@
-import React from "react";
 import hair from "@/components/CharacterOptions/hair";
-import { useSelector } from "react-redux";
 import get from "lodash-es/get";
-import { IStoreState } from "@/interfaces/IStoreState";
+import { ICharacter } from "@/interfaces/ICharacter";
 
-const HairLayer = () => {
-	const { hairstyle = "", hairColor } = useSelector((store: IStoreState) => store.character);
-	const activeLayer = get(hair, [hairstyle, "layer"]);
+interface IProps {
+	selected?: ICharacter["hair"]
+}
 
-	return <g id="character-hair">{activeLayer ? activeLayer({ colors: get(hairColor, ["palette"]) }) : null}</g>;
+const HairLayer = ({ selected }: IProps) => {
+	const activeLayer = selected?.style ? get(hair, [selected?.style, "layer"]) : null;
+
+	return <g id="character-hair">{activeLayer ? activeLayer({ colors: get(selected?.color, ["palette"]) }) : null}</g>;
 };
 
 export default HairLayer;

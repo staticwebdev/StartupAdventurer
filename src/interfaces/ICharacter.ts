@@ -11,6 +11,7 @@ export interface ICharacter {
 	};
 	shoes?: string; // This should probably be a type
 	accessories?: string[];
+	hair?: Partial<IStyledSelection<string>>
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"
@@ -22,5 +23,5 @@ export interface IStyledSelection<Styles> {
 }
 
 export interface IColoredSelection {
-	color: IColorSet
+	color?: IColorSet
 }

@@ -1,6 +1,4 @@
 import {
-  SET_HAIRSTYLE,
-  SET_HAIR_COLOR,
   SET_SKIN_COLOR,
   SET_FACIAL_HAIR,
   SET_FACIAL_HAIR_COLOR,
@@ -21,8 +19,10 @@ import { ICharacter } from "@/interfaces/ICharacter";
 import isEqual from "lodash-es/isEqual";
 
 const initialState: ICharacter = {
-  hairstyle: "hair7",
-  hairColor: defaultColorObject,
+  hair: {
+    style: "hair7",
+    color: defaultColorObject,
+  },
   skinColor: defaultSkin,
   facialHairColor: defaultFacialHairColor,
   viewedOptionTabs: [],
@@ -82,23 +82,27 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
           accessories: newAccessories,
         };
       }
+      case CharacterActionType.SET_HAIRSTYLE:
+        return {
+          ...state,
+          hair: {
+            ...state.hair,
+            style: action.payload.style,
+          }
+        };
+
+      case CharacterActionType.SET_HAIR_COLOR:
+        return {
+          ...state,
+          hair: {
+            ...state.hair,
+            color: action.payload.color,
+          }
+        };
     }
   } else {
     const { type, payload } = action;
     switch (type) {
-      case SET_HAIRSTYLE:
-        return {
-          ...state,
-          hairstyle: payload.style,
-        };
-
-      case SET_HAIR_COLOR:
-        return {
-          ...state,
-          hairColor: {
-            ...payload.color,
-          },
-        };
 
       case SET_SKIN_COLOR:
         return {

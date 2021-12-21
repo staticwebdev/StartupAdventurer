@@ -29,8 +29,7 @@ const BodyPanel = () => {
 	const dispatch: Dispatch = useDispatch();
 
 	const {
-		hairstyle = "",
-		hairColor,
+		hair: selectedHair,
 		facialHair: selectedFacialHair = "",
 		facialHairColor,
 		skinColor,
@@ -53,15 +52,15 @@ const BodyPanel = () => {
 	}));
 
 	return (
-		<OptionPanel id="body-panel" aria-labelledby="body" className={clsx("body-options", !selectedFacialHair && "no-facial-hair", !hairstyle && "no-hair")}>
+		<OptionPanel id="body-panel" aria-labelledby="body" className={clsx("body-options", !selectedFacialHair && "no-facial-hair", !selectedHair?.style && "no-hair")}>
 			<OptionStyleSelectable
-				thumbColors={hairColor && hairColor.palette}
+				thumbColors={selectedHair?.color && selectedHair?.color.palette}
 				horizontal={true}
 				title="Hair style"
 				styles={hairOptions}
 				onResetClicked={() => dispatch(setHairStyle(undefined))}
 				onStyleClicked={style => dispatch(setHairStyle(style))}
-				selectedStyle={hairstyle}
+				selectedStyle={selectedHair?.style}
 				className="hair-style"
 			/>
 			<OptionColorSelectable
@@ -72,7 +71,7 @@ const BodyPanel = () => {
 				onColorClicked={color => dispatch(setHairColor(color))}
 				withHeader={false}
 				withSwatchContainer={false}
-				activeColor={hairColor}
+				activeColor={selectedHair?.color}
 				className="hair-color"
 			/>
 

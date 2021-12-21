@@ -1,5 +1,5 @@
 import { Action } from "@/redux/createAction";
-import { ICharacter, IStyledSelection, TopStyle } from "@/interfaces/ICharacter";
+import { ICharacter, IColoredSelection, IStyledSelection, TopStyle } from "@/interfaces/ICharacter";
 
 export const SET_HAIRSTYLE: string = "character/SET_HAIRSTYLE";
 export const SET_HAIR_COLOR: string = "character/SET_HAIR_COLOR";
@@ -40,5 +40,7 @@ type SetBottomAction = Action<typeof CharacterActionType.SET_BOTTOM, ICharacter[
 type SetTopAction = Action<typeof CharacterActionType.SET_TOP, IStyledSelection<TopStyle>>;
 type SetShoesAction = Action<typeof CharacterActionType.SET_SHOES, IStyledSelection<string>>;
 type SetAccessoryAction = Action<typeof CharacterActionType.SET_ACCESSORY, IStyledSelection<string | undefined>>;
+type SetHairStyleAction = Action<typeof CharacterActionType.SET_HAIRSTYLE, Partial<IStyledSelection<string>>>;
+type SetHairColorAction = Action<typeof CharacterActionType.SET_HAIR_COLOR, IColoredSelection>;
 
-export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction;
+export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction;
