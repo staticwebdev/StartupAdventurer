@@ -14,6 +14,7 @@ export interface ICharacter {
 	eyewear?: string;
 	hair?: Partial<IStyledSelection<string>>;
 	facialHair: Partial<IStyledSelection<string>>;
+	skinColor: IColorSet;
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"

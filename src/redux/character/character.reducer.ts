@@ -1,6 +1,4 @@
 import {
-  SET_SKIN_COLOR,
-  SET_BOTTOM,
   RESET_CHARACTER,
   SET_START_TIME,
   SET_END_TIME,
@@ -135,20 +133,17 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             },
           };
         }
+      case CharacterActionType.SET_SKIN_COLOR:
+        return {
+          ...state,
+          skinColor: {
+            ...action.payload.color,
+          },
+        };
     }
   } else {
     const { type, payload } = action;
     switch (type) {
-
-      case SET_SKIN_COLOR:
-        return {
-          ...state,
-          skinColor: {
-            ...payload.color,
-          },
-        };
-
-
 
       case SET_START_TIME:
         return {

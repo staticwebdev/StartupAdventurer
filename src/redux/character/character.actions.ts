@@ -1,6 +1,4 @@
 import {
-  SET_SKIN_COLOR,
-  SET_BOTTOM,
   RESET_CHARACTER,
   SET_START_TIME,
   SET_END_TIME,
@@ -35,9 +33,10 @@ export const setFacialHairColor = (color: IColorSet | undefined): CharacterActio
   typed: true
 });
 
-export const setSkinColor = (color: IColorSet): IAction => ({
-  type: SET_SKIN_COLOR,
+export const setSkinColor = (color: IColorSet): CharacterAction => ({
+  type: CharacterActionType.SET_SKIN_COLOR,
   payload: { color },
+  typed: true
 });
 
 export const setEyewear = (style: string | undefined): CharacterAction => ({

@@ -45,5 +45,6 @@ type SetHairColorAction = Action<typeof CharacterActionType.SET_HAIR_COLOR, ICol
 type SetEyewearAction = Action<typeof CharacterActionType.SET_EYEWEAR, IStyledSelection<string | undefined>>;
 type SetFacialHairStyleAction = Action<typeof CharacterActionType.SET_FACIAL_HAIR, Partial<IStyledSelection<string>>>;
 type SetFacialHairColorAction = Action<typeof CharacterActionType.SET_FACIAL_HAIR_COLOR, IColoredSelection>;
+type SetSkinColorAction = Action<typeof CharacterActionType.SET_SKIN_COLOR, Required<IColoredSelection>>;
 
-export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction | SetEyewearAction | SetFacialHairStyleAction | SetFacialHairColorAction;
+export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction | SetEyewearAction | SetFacialHairStyleAction | SetFacialHairColorAction | SetSkinColorAction;
