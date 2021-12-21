@@ -10,36 +10,39 @@ interface IStyle {
   thumb: Function;
 }
 
-interface IProps {
-  onResetClicked: (style: string | string[]) => void;
-  onStyleClicked: (style: string) => void;
-  selectedStyle?: string | string[];
-  styles: IStyle[];
-  title: string;
-  showTitle?: boolean;
-  horizontal?: boolean;
-  className?: string;
-  thumbColors?: Colors;
-  [key: string]: any;
+interface IProps<T = string> {
+	onResetClicked: (style: T | T[]) => void;
+	onStyleClicked: (style: T) => void;
+	selectedStyle?: T | T[];
+	styles: IStyle[];
+	title: string;
+	showTitle?: boolean;
+	horizontal?: boolean;
+	className?: string;
+	thumbColors?: Colors;
+	[key: string]: any;
 }
 
-const OptionStyleSelectable = (props: IProps) => {
-  const {
-    styles,
-    title,
-    onResetClicked = noop,
-    onStyleClicked = noop,
-    selectedStyle = "",
-    horizontal = false,
-    showTitle = true,
-    className,
-    thumbColors,
-  } = props;
-  const isActive = (value: string) =>
-    !!selectedStyle && (!Array.isArray(selectedStyle) ? selectedStyle === value : selectedStyle.indexOf(value) !== -1);
-  const isActiveFromStyles =
-    !!selectedStyle &&
-    (Array.isArray(selectedStyle) ? selectedStyle.length > 0 : styles.some((style) => style.value === selectedStyle));
+const OptionStyleSelectable = <T extends string>(props: IProps<T>) => {
+	const {
+		styles,
+		title,
+		onResetClicked = noop,
+		onStyleClicked = noop,
+		selectedStyle = "",
+		horizontal = false,
+		showTitle = true,
+		className,
+		thumbColors,
+	} = props;
+	const isActive = (value: string) =>
+		!!selectedStyle &&
+		(!Array.isArray(selectedStyle) ? selectedStyle === value : selectedStyle.indexOf(value) !== -1);
+	const isActiveFromStyles =
+		!!selectedStyle &&
+		(Array.isArray(selectedStyle)
+			? selectedStyle.length > 0
+			: styles.some((style) => style.value === selectedStyle));
 
   const ContainerElement = horizontal ? HorizontalScroller : Container;
 
@@ -93,48 +96,49 @@ const OptionStyleSelectable = (props: IProps) => {
     onStyleClicked(value);
   };
 
-  return (
-    <Wrapper
-      isHorizontal={horizontal}
-      className={className}
-      aria-label={title}
-      aria-activedescendant={`${className}-${focusedIndex}`}
-      tabIndex={0}
-      onBlur={onBlur}
-      role="listbox"
-      aria-labelledby={`${className}-title`}
-      aria-orientation="horizontal"
-    >
-      <Header>
-        {showTitle && <Title id={`${className}-title`}>{title}</Title>}
-        <Deselector tabIndex={-1} disabled={!isActiveFromStyles} onClick={() => onResetClicked(selectedStyle)}>
-          Deselect
-        </Deselector>
-      </Header>
-      <ContainerElement>
-        {styles &&
-          isArray(styles) &&
-          styles
-            .filter((style) => style && typeof style.thumb === "function")
-            .map(({ value, thumb }, index) => (
-              <Thumbnail
-                role="option"
-                as="button"
-                ref={setButtonRef}
-                onClick={() => onClick(value, index)}
-                key={value}
-                active={isActive(value)}
-                aria-selected={isActive(value)}
-                tabIndex={-1}
-                onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => keyPressed(e, index)}
-                id={`${className}-${index}`}
-              >
-                {thumb(!!thumbColors ? { colors: thumbColors } : {})}
-              </Thumbnail>
-            ))}
-      </ContainerElement>
-    </Wrapper>
-  );
+	return (
+		<Wrapper
+			isHorizontal={horizontal}
+			className={className}
+			aria-label={title}
+			aria-activedescendant={`${className}-${focusedIndex}`}
+			tabIndex={0}
+			onBlur={onBlur}
+			onFocus={setInitialFocus}
+			role="listbox"
+			aria-labelledby={`${className}-title`}
+			aria-orientation="horizontal"
+		>
+			<Header>
+				{showTitle && <Title id={`${className}-title`}>{title}</Title>}
+				<Deselector tabIndex={-1} disabled={!isActiveFromStyles} onClick={() => onResetClicked(selectedStyle)}>
+					Deselect
+				</Deselector>
+			</Header>
+			<ContainerElement>
+				{styles &&
+					isArray(styles) &&
+					styles
+						.filter((style) => style && typeof style.thumb === "function")
+						.map(({ value, thumb }, index) => (
+							<Thumbnail
+								role="option"
+								as="button"
+								ref={setButtonRef}
+								onClick={() => onClick(value, index)}
+								key={value}
+								active={isActive(value as T)}
+								aria-selected={isActive(value as T)}
+								tabIndex={-1}
+								onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => keyPressed(e, index)}
+								id={`${className}-${index}`}
+							>
+								{thumb(!!thumbColors ? { colors: thumbColors } : {})}
+							</Thumbnail>
+						))}
+			</ContainerElement>
+		</Wrapper>
+	);
 };
 
 export default OptionStyleSelectable;
