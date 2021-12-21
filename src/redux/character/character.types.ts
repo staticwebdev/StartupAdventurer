@@ -1,19 +1,6 @@
 import { Action } from "@/redux/createAction";
 import { ICharacter, IColoredSelection, IStyledSelection, TopStyle } from "@/interfaces/ICharacter";
 
-export const SET_HAIRSTYLE: string = "character/SET_HAIRSTYLE";
-export const SET_HAIR_COLOR: string = "character/SET_HAIR_COLOR";
-export const SET_SKIN_COLOR: string = "character/SET_SKIN_COLOR";
-export const SET_FACIAL_HAIR: string = "character/SET_FACIAL_HAIR";
-export const SET_FACIAL_HAIR_COLOR: string = "character/SET_FACIAL_HAIR_COLOR";
-export const SET_EYEWEAR: string = "character/SET_EYEWEAR";
-export const SET_TOP: string = "character/SET_TOP";
-export const SET_BOTTOM: string = "character/SET_BOTTOM";
-export const SET_SHOES: string = "character/SET_SHOES";
-export const SET_ACCESSORY: string = "character/SET_ACCESSORY";
-
-export const SET_START_TIME: string = "character/SET_START_TIME";
-export const SET_END_TIME: string = "character/SET_END_TIME";
 
 export const SET_VIEWED_TAB: string = "character/SET_VIEWED_TAB";
 
@@ -46,5 +33,11 @@ type SetEyewearAction = Action<typeof CharacterActionType.SET_EYEWEAR, IStyledSe
 type SetFacialHairStyleAction = Action<typeof CharacterActionType.SET_FACIAL_HAIR, Partial<IStyledSelection<string>>>;
 type SetFacialHairColorAction = Action<typeof CharacterActionType.SET_FACIAL_HAIR_COLOR, IColoredSelection>;
 type SetSkinColorAction = Action<typeof CharacterActionType.SET_SKIN_COLOR, Required<IColoredSelection>>;
+type SetStartTimeAction = Action<typeof CharacterActionType.SET_START_TIME, { time: string }>;
+type SetEndTimeAction = Action<typeof CharacterActionType.SET_END_TIME, { time: string }>;
+type ResetCharacterAction = Action<typeof CharacterActionType.RESET_CHARACTER, {}>;
+type SetViewedTabAction = Action<typeof CharacterActionType.SET_VIEWED_TAB, { tab: string }>;
 
-export type CharacterAction = SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction | SetEyewearAction | SetFacialHairStyleAction | SetFacialHairColorAction | SetSkinColorAction;
+
+export type CharacterAction =
+	SetBottomAction | SetTopAction | SetShoesAction | SetAccessoryAction | SetHairStyleAction | SetHairColorAction | SetEyewearAction | SetFacialHairStyleAction | SetFacialHairColorAction | SetSkinColorAction | SetStartTimeAction | SetEndTimeAction | SetViewedTabAction | ResetCharacterAction;

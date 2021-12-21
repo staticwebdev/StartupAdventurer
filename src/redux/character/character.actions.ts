@@ -1,11 +1,4 @@
-import {
-  RESET_CHARACTER,
-  SET_START_TIME,
-  SET_END_TIME,
-  SET_VIEWED_TAB,
-} from "./character.types";
 import { IColorSet } from "@/interfaces/Colors";
-import { IAction } from "@/interfaces/IAction";
 import { BottomStyle, TopStyle } from "@/interfaces/ICharacter"
 import { CharacterAction, CharacterActionType } from "@/redux/character/character.types"
 
@@ -69,22 +62,26 @@ export const setAccessory = (style: string | undefined): CharacterAction => ({
   typed: true
 });
 
-export const setStartTime = (time: string): IAction => ({
-  type: SET_START_TIME,
+export const setStartTime = (time: string): CharacterAction => ({
+  type: CharacterActionType.SET_START_TIME,
   payload: { time },
+  typed: true
 });
 
-export const setEndTime = (time: string): IAction => ({
-  type: SET_END_TIME,
+export const setEndTime = (time: string): CharacterAction => ({
+  type: CharacterActionType.SET_END_TIME,
   payload: { time },
+  typed: true
 });
 
-export const setViewedTab = (tab: string): IAction => ({
-  type: SET_VIEWED_TAB,
+export const setViewedTab = (tab: string): CharacterAction => ({
+  type: CharacterActionType.SET_VIEWED_TAB,
   payload: { tab },
+  typed: true
 });
 
-export const resetCharacter = (): IAction => ({
-  type: RESET_CHARACTER,
+export const resetCharacter = (): CharacterAction => ({
+  type: CharacterActionType.RESET_CHARACTER,
   payload: {},
+  typed: true
 });

@@ -1,8 +1,4 @@
 import {
-  RESET_CHARACTER,
-  SET_START_TIME,
-  SET_END_TIME,
-  SET_VIEWED_TAB,
   CharacterAction,
   CharacterActionType,
 } from "./character.types";
@@ -140,35 +136,29 @@ const reducer = (state: ICharacter = initialState, action: IAction | CharacterAc
             ...action.payload.color,
           },
         };
-    }
-  } else {
-    const { type, payload } = action;
-    switch (type) {
-
-      case SET_START_TIME:
+      case CharacterActionType.SET_START_TIME:
         return {
           ...state,
-          startedAt: payload.time,
+          startedAt: action.payload.time,
         };
-
-      case SET_END_TIME:
+      case CharacterActionType.SET_END_TIME:
         return {
           ...state,
-          completedAt: payload.time,
+          completedAt: action.payload.time,
         };
 
-      case SET_VIEWED_TAB:
+      case CharacterActionType.SET_VIEWED_TAB:
         return {
           ...state,
-          viewedOptionTabs: [...state.viewedOptionTabs, payload.tab],
+          viewedOptionTabs: [...state.viewedOptionTabs, action.payload.tab],
         };
-
-      case RESET_CHARACTER:
+      case CharacterActionType.RESET_CHARACTER:
         return initialState;
-
       default:
         return state;
     }
+  } else {
+    return state;
   }
 };
 
