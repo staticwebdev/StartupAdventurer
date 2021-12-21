@@ -1,7 +1,6 @@
 import { IColorSet } from "./Colors"
 
 export interface ICharacter {
-	[key: string]: any;
 	bottom?: IStyledSelection<BottomStyle>;
 	tops?: {
 		hoodie?: IColorSet;
@@ -15,6 +14,10 @@ export interface ICharacter {
 	hair?: Partial<IStyledSelection<string>>;
 	facialHair: Partial<IStyledSelection<string>>;
 	skinColor: IColorSet;
+
+	startedAt?: string;
+	completedAt?: string;
+	viewedOptionTabs: string[];
 }
 
 export type TopStyle = "hoodie" | "jacket" | "tshirt" | "shirt"
