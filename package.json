@@ -23,7 +23,7 @@
     "lodash-es": "^4.17.15",
     "react": "^17.0.1",
     "react-app-rewired": "^2.1.4",
-    "react-compound-slider": "^3.4.0",
+    "react-compound-slider": "^2.4.0",
     "react-dom": "^17.0.1",
     "react-dropdown-aria": "^1.5.1",
     "react-idle-timer": "^4.2.11",
