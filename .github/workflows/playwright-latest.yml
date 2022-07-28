@@ -7,6 +7,7 @@ on:
   # Triggers the workflow nightly and on push to the main branch
   push:
     branches: [ "main" ]
+  workflow_dispatch:
   schedule: 
     # nightly
     - cron: '0 0 * * *'
