@@ -1,6 +1,6 @@
 # This action runs playwright tests nightly 
 
-name: Playwright scheduled tests
+name: Scheduled Playwright tests
 
 # Controls when the workflow will run
 on:
