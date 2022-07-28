@@ -1,0 +1,115 @@
+{
+  "config": {
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {},
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/t-hannzhu/Documents/Work/Original/StartupAdventurer/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "name": "",
+        "testDir": "C:/Users/t-hannzhu/Documents/Work/Original/StartupAdventurer/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/?(*.)@(spec|test).*"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "pw-report"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFolder": "pw-report",
+          "outputFile": "report.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 15000
+    },
+    "rootDir": "C:/Users/t-hannzhu/Documents/Work/Original/StartupAdventurer/tests",
+    "quiet": false,
+    "shard": null,
+    "updateSnapshots": "missing",
+    "version": "1.24.1",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run start",
+      "port": 3000,
+      "timeout": 120000,
+      "reuseExistingServer": true
+    },
+    "_webServers": [
+      {
+        "command": "npm run start",
+        "port": 3000,
+        "timeout": 120000,
+        "reuseExistingServer": true
+      }
+    ],
+    "_globalOutputDir": "C:\\Users\\t-hannzhu\\Documents\\Work\\Original\\StartupAdventurer",
+    "_configDir": "C:\\Users\\t-hannzhu\\Documents\\Work\\Original\\StartupAdventurer",
+    "_testGroupsCount": 1
+  },
+  "suites": [
+    {
+      "title": "example.spec.ts",
+      "file": "example.spec.ts",
+      "line": 0,
+      "column": 0,
+      "specs": [
+        {
+          "title": "homepage has Playwright in title and get started link linking to the intro page",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "status": "passed",
+                  "duration": 5032,
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "C:\\Users\\t-hannzhu\\Documents\\Work\\Original\\StartupAdventurer\\test-results\\example-homepage-has-Playwright-in-title-and-get-started-link-linking-to-the-intro-page\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "file": "example.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": []
+}
