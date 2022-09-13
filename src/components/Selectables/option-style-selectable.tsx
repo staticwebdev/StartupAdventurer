@@ -104,7 +104,7 @@ const OptionStyleSelectable = <T extends string>(props: IProps<T>) => {
 			aria-activedescendant={`${className}-${focusedIndex}`}
 			tabIndex={0}
 			onBlur={onBlur}
-			onFocus={setInitialFocus}
+			// onFocus={setInitialFocus}
 			role="listbox"
 			aria-labelledby={`${className}-title`}
 			aria-orientation="horizontal"
