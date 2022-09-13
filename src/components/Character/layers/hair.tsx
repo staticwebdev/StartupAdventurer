@@ -1,3 +1,4 @@
+import React from "react";
 import hair from "@/components/CharacterOptions/hair";
 import get from "lodash-es/get";
 import { ICharacter } from "@/interfaces/ICharacter";
