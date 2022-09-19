@@ -1,12 +1,13 @@
 import React from "react";
 import bottoms from "@/components/CharacterOptions/bottoms";
-import { useSelector } from "react-redux";
 import get from "lodash-es/get";
-import { IStoreState } from "@/interfaces/IStoreState";
+import { ICharacter } from "@/interfaces/ICharacter";
+interface IProps {
+	selected?: ICharacter["bottom"]
+}
 
-const BottomLayer = () => {
-	const { bottom: selectedBottom = {} } = useSelector((store: IStoreState) => store.character);
-	const activeLayer = get(bottoms, [selectedBottom.style, "layer"]);
+const BottomLayer = ({ selected: selectedBottom }: IProps) => {
+	const activeLayer = selectedBottom ? get(bottoms, [selectedBottom.style, "layer"]) : null;
 
 	return (
 		<g id="character-bottom">

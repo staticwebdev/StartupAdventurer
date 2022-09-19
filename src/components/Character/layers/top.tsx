@@ -1,26 +1,21 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import tops from "@/components/CharacterOptions/tops";
 
 import isEmpty from "lodash-es/isEmpty";
 import get from "lodash-es/get";
-import { IStoreState } from "@/interfaces/IStoreState";
+import { ICharacter } from "@/interfaces/ICharacter";
 
-const CharacterTop = () => {
+interface IProps { selected?: ICharacter["tops"] }
+
+const CharacterTop = ({ selected }: IProps) => {
 	const { hoodie, jacket, shirt, tshirt } = tops;
-	const {
-		hoodie: selectedHoodie,
-		jacket: selectedJacket,
-		shirt: selectedShirt,
-		tshirt: selectedTShirt,
-	} = useSelector((store: IStoreState) => store.character);
 
 	return (
 		<g id="character-top">
-			{!isEmpty(selectedTShirt) && tshirt.layer({ colors: get(selectedTShirt, "palette") })}
-			{!isEmpty(selectedShirt) && shirt.layer({ colors: get(selectedShirt, "palette") })}
-			{!isEmpty(selectedJacket) && jacket.layer({ colors: get(selectedJacket, "palette") })}
-			{!isEmpty(selectedHoodie) && hoodie.layer({ colors: get(selectedHoodie, "palette") })}
+			{!isEmpty(selected?.tshirt) && tshirt.layer({ colors: get(selected?.tshirt, "palette") })}
+			{!isEmpty(selected?.shirt) && shirt.layer({ colors: get(selected?.shirt, "palette") })}
+			{!isEmpty(selected?.jacket) && jacket.layer({ colors: get(selected?.jacket, "palette") })}
+			{!isEmpty(selected?.hoodie) && hoodie.layer({ colors: get(selected?.hoodie, "palette") })}
 		</g>
 	);
 };

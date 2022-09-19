@@ -66,7 +66,7 @@ const CharacterDisplay = () => {
           dispatch(characterActions.setSkinColor(decodeColourSet(appearance.skin)));
         }
         if (appearance["t-shirt"]) {
-          dispatch(characterActions.setTop("t-shirt", decodeColourSet(appearance["t-shirt"])));
+          dispatch(characterActions.setTop("tshirt", decodeColourSet(appearance["t-shirt"])));
         }
         if (appearance["shirt"]) {
           dispatch(characterActions.setTop("shirt", decodeColourSet(appearance["shirt"])));

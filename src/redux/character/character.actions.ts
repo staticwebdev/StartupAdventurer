@@ -1,93 +1,73 @@
-import {
-  SET_HAIRSTYLE,
-  SET_HAIR_COLOR,
-  SET_FACIAL_HAIR,
-  SET_FACIAL_HAIR_COLOR,
-  SET_SKIN_COLOR,
-  SET_EYEWEAR,
-  SET_BOTTOM,
-  SET_TOP,
-  SET_SHOES,
-  RESET_CHARACTER,
-  SET_ACCESSORY,
-  SET_START_TIME,
-  SET_END_TIME,
-  SET_VIEWED_TAB,
-} from "./character.types";
-import { Colors } from "@/interfaces/Colors";
-import { IAction } from "@/interfaces/IAction";
+import { IColorSet } from "@/interfaces/Colors";
+import { BottomStyle, TopStyle } from "@/interfaces/ICharacter"
+import { CharacterAction, CharacterActionType } from "@/redux/character/character.types"
 
-interface IColorSet {
-  name: string;
-  palette?: Colors;
-}
-
-export const setHairStyle = (style: string | undefined): IAction => ({
-  type: SET_HAIRSTYLE,
+export const setHairStyle = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_HAIRSTYLE,
   payload: { style },
 });
 
-export const setHairColor = (color: IColorSet | undefined): IAction => ({
-  type: SET_HAIR_COLOR,
+export const setHairColor = (color: IColorSet | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_HAIR_COLOR,
   payload: { color },
 });
 
-export const setFacialHair = (style: string | undefined): IAction => ({
-  type: SET_FACIAL_HAIR,
+export const setFacialHair = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_FACIAL_HAIR,
   payload: { style },
 });
 
-export const setFacialHairColor = (color: IColorSet | undefined): IAction => ({
-  type: SET_FACIAL_HAIR_COLOR,
+export const setFacialHairColor = (color: IColorSet | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_FACIAL_HAIR_COLOR,
   payload: { color },
 });
 
-export const setSkinColor = (color: IColorSet): IAction => ({
-  type: SET_SKIN_COLOR,
+export const setSkinColor = (color: IColorSet): CharacterAction => ({
+  type: CharacterActionType.SET_SKIN_COLOR,
   payload: { color },
 });
 
-export const setEyewear = (style: string | null): IAction => ({
-  type: SET_EYEWEAR,
+export const setEyewear = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_EYEWEAR,
   payload: { style },
 });
 
-export const setTop = (style: string, color?: IColorSet): IAction => ({
-  type: SET_TOP,
+export const setTop = (style: TopStyle, color?: IColorSet): CharacterAction => ({
+  type: CharacterActionType.SET_TOP,
   payload: { style, color },
 });
 
-export const setBottom = (style: string, color?: IColorSet): IAction => ({
-  type: SET_BOTTOM,
+export const setBottom = (style: BottomStyle, color?: IColorSet): CharacterAction => ({
+  type: CharacterActionType.SET_BOTTOM,
   payload: { style, color },
 });
 
-export const setShoes = (style: string): IAction => ({
-  type: SET_SHOES,
+export const setShoes = (style: string): CharacterAction => ({
+  type: CharacterActionType.SET_SHOES,
   payload: { style },
 });
 
-export const setAccessory = (style: string | undefined): IAction => ({
-  type: SET_ACCESSORY,
+export const setAccessory = (style: string | undefined): CharacterAction => ({
+  type: CharacterActionType.SET_ACCESSORY,
   payload: { style },
 });
 
-export const setStartTime = (time: string): IAction => ({
-  type: SET_START_TIME,
+export const setStartTime = (time: string): CharacterAction => ({
+  type: CharacterActionType.SET_START_TIME,
   payload: { time },
 });
 
-export const setEndTime = (time: string): IAction => ({
-  type: SET_END_TIME,
+export const setEndTime = (time: string): CharacterAction => ({
+  type: CharacterActionType.SET_END_TIME,
   payload: { time },
 });
 
-export const setViewedTab = (tab: string): IAction => ({
-  type: SET_VIEWED_TAB,
+export const setViewedTab = (tab: string): CharacterAction => ({
+  type: CharacterActionType.SET_VIEWED_TAB,
   payload: { tab },
 });
 
-export const resetCharacter = (): IAction => ({
-  type: RESET_CHARACTER,
+export const resetCharacter = (): CharacterAction => ({
+  type: CharacterActionType.RESET_CHARACTER,
   payload: {},
 });

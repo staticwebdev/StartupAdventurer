@@ -2,12 +2,12 @@ import React, { Fragment, useState } from "react";
 import { Thumbnail, Container, Swatches, ColorSwatch, Color, Wrapper, Header, Title, Deselector } from "./styles";
 import noop from "lodash-es/noop";
 import HorizontalScroller from "@/components/HorizontalScroller";
-import { Colors, IColorOptions } from "@/interfaces/Colors";
+import { IColorOptions, IColorSet } from "@/interfaces/Colors";
 import clsx from "clsx";
 
 interface IProps {
-	activeColor?: { name: string; palette: Colors };
-	onColorClicked: (color: { name: string; palette: Colors }) => void;
+	activeColor?: IColorSet;
+	onColorClicked: (color: IColorSet) => void;
 	onResetClicked?: () => void;
 	onThumbClicked?: () => void;
 	thumbnail?: Function;
@@ -53,8 +53,10 @@ const OptionColorSelectable = (props: IProps) => {
 			return;
 		}
 		let selectedIndex = activeColor ? Object.keys(colors).indexOf(activeColor.name) : 0;
-		buttons[selectedIndex].focus();
-		setFocusedIndex(selectedIndex);
+		if (selectedIndex > -1) {
+			buttons[selectedIndex].focus();
+			setFocusedIndex(selectedIndex);
+		}
 	};
 
 	const keyPress = (event: React.KeyboardEvent<HTMLElement>, index: number) => {

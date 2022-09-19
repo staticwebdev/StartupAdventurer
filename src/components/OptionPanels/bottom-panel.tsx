@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setBottom, setShoes } from "@/redux/character/character.actions";
 import { IStoreState } from "@/interfaces/IStoreState";
 import { getColorSet, decideNextSet } from "@/utils/selection-utils";
+import { BottomStyle } from "@/interfaces/ICharacter";
 
 const BottomPanel = () => {
 	const { pants, maxiSkirt, miniSkirt, prosthetic, kilt, bathrobe, dress } = bottoms;
@@ -40,7 +41,11 @@ const BottomPanel = () => {
 	const dispatch: Dispatch = useDispatch();
 	const { bottom, shoes: selectedShoes } = useSelector((store: IStoreState) => store.character);
 
-	const getActiveBottomColor = (type: string) => bottom && bottom.style === type && bottom.color;
+	const getActiveBottomColor = (type: string) => {
+		if (bottom && bottom.style === type) {
+			return bottom.color
+		}
+	}
 
 	return (
 		<OptionPanel id="bottom-panel" aria-labelledby="bottom" className="bottom-options">
@@ -98,10 +103,10 @@ const BottomPanel = () => {
 					)
 				}
 			/>
-			<OptionStyleSelectable
+			<OptionStyleSelectable<BottomStyle>
 				title="Other"
 				styles={other}
-				onResetClicked={(selected: string | string[]) =>
+				onResetClicked={(selected: BottomStyle | BottomStyle[]) =>
 					dispatch(setBottom(Array.isArray(selected) ? selected[0] : selected, undefined))
 				}
 				onStyleClicked={style => dispatch(setBottom(style, { name: style }))}

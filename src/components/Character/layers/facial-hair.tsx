@@ -1,17 +1,19 @@
 import React from "react";
 import facialHair from "@/components/CharacterOptions/facial-hair";
-import { useSelector } from "react-redux";
 import get from "lodash-es/get";
 import camelCase from "lodash-es/camelCase";
-import { IStoreState } from "@/interfaces/IStoreState";
+import { ICharacter } from "@/interfaces/ICharacter";
 
-const FacialHairLayer = () => {
-	const { facialHair: activeFacialHair = "", facialHairColor } = useSelector((store: IStoreState) => store.character);
-	const activeLayer = get(facialHair, [camelCase(activeFacialHair), "layer"]);
+interface IProps {
+	selected?: ICharacter["facialHair"]
+}
+
+const FacialHairLayer = ({ selected }: IProps) => {
+	const activeLayer = get(facialHair, [camelCase(selected?.style), "layer"]);
 
 	return (
 		<g id="character-facial-hair">
-			{activeLayer ? activeLayer({ colors: get(facialHairColor, ["palette"]) }) : null}
+			{activeLayer ? activeLayer({ colors: get(selected?.color, ["palette"]) }) : null}
 		</g>
 	);
 };
