@@ -94,6 +94,3 @@ build
 obj
 appsettings.json
 local.settings.json
-/test-results/
-/playwright-report/
-/playwright/.cache/
