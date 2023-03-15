@@ -94,4 +94,3 @@ build
 obj
 appsettings.json
 local.settings.json
-/test-results/
